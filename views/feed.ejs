@@ -1,15 +1,82 @@
 <%- include('partials/header') -%>
-  <div class="container">
-    <div class="row justify-content-center mt-5">
-      <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul>
-    </div>
-  </div>  
+      <div class="container gedf-wrapper">
+      <div class="row">
+
+        <!--Left Side Card-->
+            <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                                <div class="h5"> Username </div>
+                                <div class="h7 text-muted"> Full Name </div>
+                                <div class="h7"> Information about User</div>
+                        </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="h6 text-muted">Followers</div>
+                                    <div class="h5">5.2342</div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="h6 text-muted">Following</div>
+                                    <div class="h5">6758</div>
+                                </li>
+                                <li class="list-group-item">Vestibulum at eros</li>
+                            </ul>
+                    </div>
+            </div>
+        <!--FEED POST-->
+        <div class="col-md-6 gedf-main thePost">
+            <div class="card gedf-card">
+                <div class="card-body">
+                    <div class="">
+                        <div class="text-info">
+                            <ul class="list-unstyled">
+                                <% for(var i=0; i<posts.length; i++) {%>
+                                <li class="card list-unstyled">
+                                    <a href="/post/<%= posts[i]._id%>" class="">
+                                        <h5 class="card-title"><%= posts[i].title %></h5>
+                                        <img class="img-thumbnail" src="<%= posts[i].image%>">
+                                    </a>
+                                        <h4 class="card-text"><%= posts[i].caption %></h4>
+                                        <h4 class="btn btn-xs"><i class="fa fa-gittip"></i>Likes: <%= posts[i].likes %></h3>
+                                    <p class="text-muted h7 mb-2"><%= posts[i].createdAt %></p>
+                                    <div class="ripple-cont">
+                                        <div class="ripple ripple-on ripple-out" style="left: 574px; top: 364px; background-color: rgb(60, 72, 88); transform: scale(11.875);"></div>
+                                    </div>
+                                </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!--Right Side Card-->
+            <div class="col-md-3">
+                <div class="card gedf-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Resources for getting sober</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Find treatment center near you</h6>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum aspernatur alias molestiae ad labore natus omnis mollitia repellendus dicta odio totam, dignissimos dolorem recusandae nulla nesciunt numquam cons</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+
+                <div class="card gedf-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Resources for getting sober</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Take the quiz</h6>
+                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, accusantium nostrum, libero perspiciatis nesciunt nemo dolores iure quo exercitationem, fugiat quaerat veritatis facere! </p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+      </div>
+      </div>
+                          
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+
+    
 <%- include('partials/footer') -%>

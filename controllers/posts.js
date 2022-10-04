@@ -1,5 +1,5 @@
 const cloudinary = require("../middleware/cloudinary");
-// const Comment = require("../models/Comment");
+const Comment = require("../models/Comment");
 const Post = require("../models/Post");
 
 module.exports = {
@@ -40,11 +40,27 @@ module.exports = {
         caption: req.body.caption,
         likes: 0,
         user: req.user.id,
+        createdAt: req.body.createdAt,
+        userName: req.body.userName
       });
       console.log("Post has been added!");
-      res.redirect("/profile");
+      res.redirect("/feed");
     } catch (err) {
-      console.log(err);
+      try{
+        await Post.create({
+          title: req.body.title,
+          caption: req.body.caption,
+          likes: 0,
+          user: req.user.id,
+          createdAt: req.body.createdAt,
+          userName: req.body.userName,
+        });
+        console.log("Post has been added!");
+        res.redirect("/feed");
+      } catch (err) {
+        console.log(err)
+      }
+      ;
     }
   },
   likePost: async (req, res) => {
@@ -72,7 +88,15 @@ module.exports = {
       console.log("Deleted Post");
       res.redirect("/profile");
     } catch (err) {
-      res.redirect("/profile");
+      try {
+        let post = await Post.findById({ _id: req.params.id });
+        await Post.remove({ _id: req.params.id });
+        console.log("Deleted Post");
+        res.redirect("/profile");
+    } catch (err) {
+      console.log(err)
+      }
+      ;
     }
   },
 };

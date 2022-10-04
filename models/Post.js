@@ -7,11 +7,11 @@ const PostSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    require: true,
+    require: false,
   },
   cloudinaryId: {
     type: String,
-    require: true,
+    require: false,
   },
   caption: {
     type: String,
@@ -29,6 +29,10 @@ const PostSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  userName: {
+    type: String,
+    ref: "User",
+  },
 });
 
-module.exports = mongoose.model("Post", PostSchema);
+module.exports = mongoose.model("post", PostSchema);
