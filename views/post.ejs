@@ -1,82 +1,75 @@
-<head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/ebd6827f1e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/post.css">        
       <nav class="navbar navbar-light bg-white">
         <a href="/profile" class="navbar-brand">Sober App</a>
-        <span>Anonymous Sober Social Network</span>
+        <h2>Anonymous Sober Social Network</h2>
+      <form class="form-inline">
+          <div class="input-group">
+              <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
+              <div class="input-group-append">
+                  <button class="btn btn-outline-primary" type="button" id="button-addon2">
+                      <i class="fa fa-search"></i>
+                  </button>
+              </div>
+          </div>
+      </form>
       </nav>
-</head>
 
-
-
-<div class="container">
-  <div class="row">
-      <div class="col-md-8">
-        <div class="post-content">
-            <img class="img-responsive post-image" src="<%= post.image%>" />
-            <div class="post-container">
-              <div class="post-detail">
-                <h2><%= post.title %></h2>
-                <div class="post-text">
-                  <div class="">
+      <div class="content">
+        <div class="container">
+            <div class="row">
+              <div class="card col-sm-10">
+                <img class="img-responsive pad" src="<%= post.image%>" alt="">
+                    <h4><%= post.title %></h4>
                     <p><%= post.caption %></p>
-                  </div>
-                </div>
-                <div class="line-divider"></div>
-                  <div class="reaction">
-                    <form class=""
-                          action="/post/likePost/<%= post.id %>?_method=PUT"
-                          method="POST">
-                      <button class="btn btn-primary fa fa-heart" type="submit"></button>
-                    </form>
-                    <h3 class="">Likes: <%= post.likes %></h3>
-                    <%if(post.user == user.id){ %>
-                    <form
-                      action="/post/deletePost/<%= post.id %>?_method=DELETE"
-                      method="POST"
-                      class="">
-                      <button class="btn btn-primary fa fa-trash" type="submit"></button>
-                    </form>
-                    <%}%>
-                  </div>
-                <div class="line-divider"></div>
-                <!-- Creating comment form -->
-                <div class="line-divider">
-                  <div class="post-comment">
-                      <h2>Add a comment</h2>
-                      <form action="/comment/createComment/<%=post._id%>" method="POST">
-                        <div class="mb-3">
-                            <label for="comment" class="form-label">Comment</label>
-                            <input type="text" class="form-control" id="comment" name="comment">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                      </form>
-                  </div>
-                </div>
+                    <h3>Likes: <%= post.likes %></h3>
+                    <div class="row">
+                        <form class="mt-3"
+                            action="/post/likePost/<%= post.id %>?_method=PUT"
+                            method="POST">
+                            <button class="btn btn-primary fa fa-heart" type="submit"></button>
+                        </form>
+                        <%if(post.user == user.id){ %>
+                        <form
+                            action="/post/deletePost/<%= post.id %>?_method=DELETE"
+                            method="POST"
+                            class="mt-3">
+                            <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                        </form>
 
-                <!-- Display comments using For Loop -->
-                <ul>
-                  <% for(var i=0; i<comments.length; i++) {%>
-                    <li class="col-6 justify-content-between mt-5">
-                      <%= comments[i].comment%>
-                      <p><%= comments[i].userName %></p>
-                    </li>
-                  <% } %>
-                </ul>
-
-
-                    <div class="col-6 mt-5">
-                      <a class="btn btn-primary" href="/profile">Return to Profile</a>
-                      <a class="btn btn-primary" href="/feed">Return to Feed</a>
+                        <%}%>
                     </div>
               </div>
-            </div>
-        </div>
+              </div>
+                  <!-- Display comments using For Loop -->
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <% for(var i=0; i<comments.length; i++) {%>
+                          <li class="comment-text">
+                            <%= comments[i].comment%>
+                            <p class="comment-text"><%= comments[i].userName %></p>
+                          </li>
+                        <% } %>
+                      </ul>
+                    </div>
+                    <!-- Creating comment form -->
+                    <div class="box-footer">
+                        <form action="/comment/createComment/<%=post._id%>" method="POST">
+                          <div class="comment-text">
+                                <label for="comment" class="form-label"></label>
+                                <input type="text" class="form-control" id="comment" name="comment" placeholder="Add a comment">
+                          </div>
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                  <div>
+                    <a class="btn btn-primary" href="/profile">Return to Profile</a>
+                    <a class="btn btn-primary" href="/feed">Return to Feed</a>
+                  </div>
       </div>
-  </div>
-</div>
+      </dev>
+
 
 
 
