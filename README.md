@@ -1,33 +1,24 @@
 # Pickle Wagon
 
 
+This is Pickle Wagon, an anonymous social media website for people in the sober community. Pickle Wagon is for posting about your life, creating discussions about facilities, and finding useful resources for getting help. Anonymously. 
+
 ![](https://github.com/BrookeLeeK/100-hours-project/blob/main/Screen%20Recording%2011-7-2022%20at%2012.02%20PM.gif)
 
 
-**Link to project:** http://recruiters-love-seeing-live-demos.com/
 
-![alt tag](http://placecorgi.com/1200/650)
+
+
 
 ## How It's Made:
 
-**Tech used:** HTML, CSS, JavaScript, Framework of choice
+**Tech used:** HTML, CSS, JavaScript, Express.js, EJS, MongoDB, and soon will include React.js
 
-Here's where you can go to town on how you actually built this thing. Write as much as you can here, it's totally fine if it's not too much just make sure you write *something*. If you don't have too much experience on your resume working on the front end that's totally fine. This is where you can really show off your passion and make up for that ten fold.
+I created Pickle Wagon, a fullstack CRUD web application, using an MVC architecture. I'm using MongoDB/Mongoose for my database, and will be using netlify to host (temporarily). I've used cloudinary for images, and bootstrap for the styling. I will be adding react.js in the coming weeks to sharpen the efficiency and readability.
 
-## Optimizations
-*(optional)*
 
-You don't have to include this section but interviewers *love* that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
 
 ## Lessons Learned:
 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *fuck yeah I did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
+The biggest lesson learned while creating this monster is sometimes simpler is better. At first I wanted this to look and work like Facebook or Twitter, lots of bells and whistles with a *modern* design. Finally after many arguments with my computer screen, I started from scratch. I started over with my design, made sure the key features were simple and easy to use, and voila. I made something I'm very proud of, and at the end of the day I built this to help people. Before tech, I worked in the substance abuse field. I wanted to make a website that had at least a little bit of what I felt the industry was missing, aka honesty.
 
-## Examples:
-Take a look at these couple examples that I have in my own portfolio:
-
-**Palettable:** https://github.com/alecortega/palettable
-
-**Twitter Battle:** https://github.com/alecortega/twitter-battle
-
-**Patch Panel:** https://github.com/alecortega/patch-panel
