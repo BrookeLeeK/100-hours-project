@@ -1,34 +1,114 @@
-<%- include('partials/header') -%>
-  <div class="container">
-    <div class="col-sm-8">
-        <div class="card-box">
-          <h4 class="header-title mt-0 mb-3">Create new discussion</h4>
-            <div class="">
-                <form action="/discussion/createDiscussion" enctype="multipart/form-data" method="POST">
-                    <div class="mb-3">
-                        <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="title" name="title">
-                    </div>
-                    <div class="mb-3">
-                      <label for="text" class="form-label">Text</label>
-                      <textarea class="form-control" id="text" name="text"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-        </div>
-        <div class="row justify-content-center mt-5">
-            <ul class="row list-unstyled">
-                <% for(var i=0; i<discussions.length; i++) {%>
-                <li class="col-6 justify-content-between mt-5">
-                    <a href="/discussion/<%= discussions[i]._id%>">
-                        <h1><%= discussions[i].title %></h1>
-                        <p><%= discussions[i].text %></p>
-                    </a>
-                </li>
-                <% } %>
-            </ul>
-        </div>
+<head>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/ebd6827f1e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/discussions.css">         
+</head>
+
+<header>
+<nav class="navbar navbar-default">
+  <div class="container fluid">
+    <div class="navbar-header">
+      <a href="/profile" class="navbar-brand">PICKLE WAGON</a> 
+    </div> 
+    <div class="">
+      <ul class="nav navbar-nav navbar-right navbar-toggle">
+              <li><a href="/feed">HOME</a></li>
+              <li><a href="/profile">PROFILE</a></li>
+              <li><a href="/discussions">DISCUSSIONS</a></li>
+              <li><a href="#">SOMETHING</a></li>
+      </ul>
     </div>
-  </div>  
+  </div>
+</nav>
+</header>
+
+    <body>
+      <div class="container">
+          <div class="row">
+            <div class="col-sm-7 mt-5">
+                <div class="card borders custom-base">
+                  <h4 class="header-title p-2 text-center">CREATE NEW DISCUSSION</h4>
+                      <form action="/discussion/createDiscussion" method="POST">
+                          <div class="mb-3">
+                            <label for="title" class="form-label p-2">TITLE</label>
+                            <input type="text" class="form-control p-2 borders" id="title" name="title">
+                            <label for="text" class="form-label p-2">TEXT</label>
+                            <textarea class="form-control p-2 borders" id="text" name="text"></textarea>
+                          </div>
+                          <div>
+                            <label for="business" class="form-label p-2">FACILITY NAME</label>
+                            <input id="pac-input" class="controls borders" type="text" placeholder="Search">
+                          </div>
+                          <div id="info-table" >
+                            
+                            <label for="place_name" class="form-label p-2">NAME</label>
+                            <textarea type="text" class="form-control borders" id="place_name" name="place_name"></textarea>
+                            <label for="place_address" class="form-label p-2">ADDRESS</label>
+                            <textarea type="text" class="form-control borders" id="place_address" name="place_address"></textarea>
+                            <label for="website" class="form-label p-2">WEBSITE</label>
+                            <textarea type="text" class="form-control borders" id="website" name="website"></textarea>
+                          </div>
+                          <div class="hide">
+                            <div id="map"></div>
+                            <textarea hidden type="text" class="hidden" id="place_id" name="place_id"></textarea>
+                          </div>
+                          <div class="text-center">
+                            <button type="submit" class="btn highlight-button m-3">Submit</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+          <!-- <div class="search-wrapper">
+            <label for="search"> search discussions</label>
+            <input type="search" id="search">
+          </div> -->
+          
+          <div class="container">
+            <div class="justify-content-center mt-5">
+              <h2> DISCUSSIONS </h2>
+                  <ul class="row list-unstyled">
+                      <% for(var i=0; i<discussions.length; i++) {%>
+                      <li class="col-5 mt-5 m-2 borders">
+                          <a href="/discussion/<%= discussions[i]._id%>" class="text-dark">
+                              <h1><%= discussions[i].title %></h1>
+                              <p class="p-text"><%= discussions[i].text %></p>
+                              <p><%= discussions[i].place_name %></p>
+                          </a>
+                      </li>
+                      <% } %>
+                  </ul>
+            </div>
+          </div>
+      </div> 
+ <!--For the google autocomplete search of places--> 
+<script async
+ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmIpFDt7zRvs-xCfg8bHX5l0XfICspANc&libraries=places&callback=initMap">
+</script>
+<script type="text/javascript">
+
+    function initMap() {
+      let input = document.getElementById('pac-input');
+      let options = {
+        types: ['establishment']
+      };
+      let autocomplete = new google.maps.places.Autocomplete(input, options);
+
+      autocomplete.setFields(['place_id', 'geometry', 'name', 'formatted_address', 'website']);
+      autocomplete.addListener('place_changed', placechange);
+
+      function placechange(){
+        let place = autocomplete.getPlace();
+        
+        document.getElementById('place_name').textContent = place.name;
+        document.getElementById('place_id').textContent = place.place_id;
+        document.getElementById('place_address').textContent = place.formatted_address;
+        document.getElementById('website').textContent = place.website;
+      }
+      }
+      
+      
+</script>
+</body>
 <%- include('partials/footer') -%>

@@ -6,7 +6,7 @@ module.exports = {
   getProfile: async (req, res) => {
     try {
       const discussions = await Discussion.find({ user: req.user.id });
-      res.render("profile.ejs", { discussions: title, user: req.user });
+      res.render("profile.ejs", { discussions: title, user: req.user, discussions: place_name });
     } catch (err) {
       console.log(err);
     }
@@ -36,12 +36,17 @@ module.exports = {
       await Discussion.create({
         title: req.body.title,
         text: req.body.text,
+        place_name: req.body.place_name,
+        place_id: req.body.place_id,
+        place_address: req.body.place_address,
+        website: req.body.website,
         likes: 0,
         user: req.user.id,
         createdAt: req.body.createdAt,
         userName: req.body.userName
       });
       console.log("Discussion has been added!");
+      console.log(req.body);
       res.redirect("/discussions");
     } catch (err) {
         console.log(err)

@@ -25,6 +25,22 @@ const DiscussionSchema = new mongoose.Schema({
     type: String,
     ref: "User",
   },
+  place_name: {
+    type: String,
+    required: false,
+  },
+  place_id: {
+    type: String,
+    required: false,
+  },
+  place_address: {
+    type: String,
+    required: false,
+  },
+  website: {
+    type: String,
+    required: false,
+  },
 });
 
 module.exports = mongoose.model("Discussion", DiscussionSchema);

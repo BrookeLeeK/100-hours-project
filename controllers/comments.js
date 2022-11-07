@@ -13,18 +13,20 @@ module.exports = {
       console.log("Comment has been added!");
       res.redirect("/post/"+req.params.id);
     } catch (err) {
-      try {
-        //adding a comment to a discussion
-        await Comment.create({
-          userName: req.body.userName,
-          comment: req.body.comment,
-          discussion: req.params.id,
-        });
-        console.log("Comment has been added!");
-        res.redirect("/discussion/"+req.params.id);
-      } catch(err){
-        console.log(err);
-      }
+      console.log(err)
     }
   },
+  createDiscussionComment: async (req, res) => {
+    try {
+      await Comment.create({
+        userName: req.body.userName,
+        comment: req.body.comment,
+        discussion: req.params.id,
+      });
+      console.log("Comment created for Discussion!");
+      res.redirect("/discussion/"+req.params.id)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 };

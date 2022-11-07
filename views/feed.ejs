@@ -1,82 +1,99 @@
-<%- include('partials/header') -%>
-      <div class="container gedf-wrapper">
-      <div class="row">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/ebd6827f1e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/feed.css">         
+</head>
 
+<header>
+  <nav class="navbar navbar-default mb-5">
+    <div class="container fluid">
+      <div class="navbar-header">
+        <a href="/profile" class="navbar-brand">PICKLE WAGON</a> 
+      </div> 
+      <div class="">
+        <ul class="nav navbar-nav navbar-right navbar-toggle">
+                <li><a href="/feed">HOME</a></li>
+                <li><a href="/profile">PROFILE</a></li>
+                <li><a href="/discussions">DISCUSSIONS</a></li>
+                <li><a href="#">SOMETHING</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<body>
+    <div class="container fluid">
+      <div class="row">
         <!--Left Side Card-->
             <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body">
-                                <div class="h5"> Username </div>
-                                <div class="h7 text-muted"> Full Name </div>
-                                <div class="h7"> Information about User</div>
-                        </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="h6 text-muted">Followers</div>
-                                    <div class="h5">5.2342</div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="h6 text-muted">Following</div>
-                                    <div class="h5">6758</div>
-                                </li>
-                                <li class="list-group-item">Vestibulum at eros</li>
-                            </ul>
+                <h3 class="text-center feed">INFO</h3>
+                <div class="card-box custom-base mb-3">
+                    <div class="card-body borders">
+                        <h5 class="card-title">This is your feed.</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">(Anonymous feed)</h6>
+                        <p class="card-text">Post about what's on your mind, talk about the good bad and ugly. Read about someone else's good bad and ugly. Tell us your whole story if that floats your boat. This is a safe space to talk.</p>
+                        <!-- <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a> -->
                     </div>
+                </div>
             </div>
         <!--FEED POST-->
-        <div class="col-md-6 gedf-main thePost">
-            <div class="card gedf-card">
-                <div class="card-body">
-                    <div class="">
-                        <div class="text-info">
-                            <ul class="list-unstyled">
-                                <% for(var i=0; i<posts.length; i++) {%>
-                                <li class="card list-unstyled">
-                                    <a href="/post/<%= posts[i]._id%>" class="">
-                                        <h5 class="card-title"><%= posts[i].title %></h5>
-                                        <img class="img-thumbnail" src="<%= posts[i].image%>">
-                                    </a>
-                                        <h4 class="card-text"><%= posts[i].caption %></h4>
-                                        <h4 class="btn btn-xs"><i class="fa fa-gittip"></i>Likes: <%= posts[i].likes %></h3>
-                                    <p class="text-muted h7 mb-2"><%= posts[i].createdAt %></p>
-                                    <div class="ripple-cont">
-                                        <div class="ripple ripple-on ripple-out" style="left: 574px; top: 364px; background-color: rgb(60, 72, 88); transform: scale(11.875);"></div>
-                                    </div>
-                                </li>
-                                <% } %>
-                            </ul>
-                        </div>
-                    </div>
+      <div class="col-md-9">
+        <div class="row">
+                <div class="col-md-8">
+                    <h3 class="text-center feed">FEED</h3>
+                        <ul class="list-unstyled">
+                            <% for(var i=0; i<posts.length; i++) {%>
+                                <div class="card borders custom-base mt-2">
+                                    <li class="card-body">
+                                        <a href="/post/<%= posts[i]._id%>" class="text-dark">
+                                            <h3 class="card-title text-center feed"><%= posts[i].title %></h3>
+                                        </a>
+                                        <div class="text-center">
+                                            <img class="img-thumbnail" src="<%= posts[i].image%>">
+                                        </div>
+                                        <h4 class="card-text text-center"><%= posts[i].caption %></h4>
+                                        <h4 class="butn borders fa fa-heart">Likes: <%= posts[i].likes %></h4>
+                                        
+                                            
+                                            <!-- <h4 class="btn borders fa fa-heart">Likes: <%= posts[i].likes %></h4> -->
+                                            <p class="text-muted h7 mb-2"><%= posts[i].createdAt %></p>
+                                    </li>
+                                </div>
+                            <% } %>
+                        </ul>
                 </div>
-            </div>
-        </div>
+            
             <!--Right Side Card-->
-            <div class="col-md-3">
-                <div class="card gedf-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Resources for getting sober</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Find treatment center near you</h6>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum aspernatur alias molestiae ad labore natus omnis mollitia repellendus dicta odio totam, dignissimos dolorem recusandae nulla nesciunt numquam cons</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+            <div class="col-md-4">
+                <h3 class="text-center feed">RESOURCES</h3>
+                <div class="card-box custom-base mb-3">
+                    <div class="card-body borders text-center">
+                        <h5 class="card-title">Looking for help?</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">www.findtreatment.gov</h6>
+                        <p class="card-text">Here is a reliable resource for finding rehab, detox, and everything in between based off of your zipcode. findtreatment is, unfortunately, a seemingly unknown website through SAMSA.</p>
+                        <a href="https://www.samhsa.gov/" class="card-link">SAMSA</a>
+                        <a href="https://findtreatment.gov/" class="card-link">findtreatment</a>
                     </div>
                 </div>
 
-                <div class="card gedf-card">
+                 <div class="card-box borders custom-base">
                     <div class="card-body">
-                        <h5 class="card-title">Resources for getting sober</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Take the quiz</h6>
-                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, accusantium nostrum, libero perspiciatis nesciunt nemo dolores iure quo exercitationem, fugiat quaerat veritatis facere! </p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <h5 class="card-title">Looking for therapy?</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Everyone needs therapy, not just your mom.</h6>
+                        <p class="card-text">Here are some reliable resources for finding therapists near you, choose from specific issues to specific insurance. Therapy is great, take it from us.</p>
+                        <a href="https://www.psychologytoday.com/us" class="card-link">Psychology Today</a>
+                        <a href="https://www.healthgrades.com/" class="card-link">Health Grades</a>
                     </div>
-                </div>
-            </div>
+                </div> 
+             </div>
+        </div>
       </div>
       </div>
+      </div> 
                           
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> 
 
-
+</body>
     
-<%- include('partials/footer') -%>
+<!-- <%- include('partials/footer') -%> -->

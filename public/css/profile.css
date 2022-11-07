@@ -1,62 +1,135 @@
 body{
-    background-color: #f3f6f8;
+    background-color: #f1e9da;
     margin-top:20px;
 }
+
+.custom-text{
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    letter-spacing: 1px;
+}
+
+/* Navbar  */
+
+.navbar {
+	font-family: 'Montserrat', sans-serif;
+	margin-top: .5em;
+	border: none;
+    margin-bottom: 1em;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    background-color: white;
+		color: black;
+}
+
+
+.navbar-brand,.navbar-nav>li>a {
+    color: black;
+	font-weight: 700;
+	font-size: 1.25em;
+	letter-spacing: 3px;
+}
+
+.navbar-brand:hover{
+    color: #715b64;
+  }
+
+
+/* Custom stuff */
+
+.borders{
+    border-radius: 10px;
+    border: black solid 4px;
+}
+
+.custom-base{
+    background-color: #f1e9da;
+}
+
+.custom-primary{
+    background-color: #98a6ad;
+}
+
+.counters{
+    margin-bottom: 20px;
+}
+
+.custom-file{
+    border-radius: 10px;
+    border: black solid 4px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.form-control:focus{
+    border-color: #a39ba8;
+    box-shadow: 0 0 0 0.2rem #a39ba8;
+}
+
 .thumb-lg {
     height: 88px;
     width: 88px;
 }
 .profile-user-box {
     position: relative;
-    border-radius: 5px
+    border-radius: 10px;
 }
 .bg-custom {
-    background-color: #02c0ce!important;
+    background-color: #a39ba8!important;
 }
 .profile-user-box {
     position: relative;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .card-box {
     padding: 20px;
-    border-radius: 3px;
+    border-radius: 10px;
     margin-bottom: 30px;
-    background-color: #fff;
-}
-.inbox-widget .inbox-item img {
-    width: 40px;
+    background-color: #f1e9da;
 }
 
-.inbox-widget .inbox-item {
-    border-bottom: 1px solid #f3f6f8;
+
+.inbox-item {
+    border-bottom: 1px solid #000;
     overflow: hidden;
-    padding: 10px 0;
+    padding: 5px 0;
     position: relative
 }
 
-.inbox-widget .inbox-item .inbox-item-img {
-    display: block;
-    float: left;
-    margin-right: 15px;
-    width: 40px
-}
 
-.inbox-widget .inbox-item img {
-    width: 40px
-}
-
-.inbox-widget .inbox-item .inbox-item-author {
-    color: #313a46;
+.inbox-widget .inbox-item .inbox-item-author, .base-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: black;
     display: block;
     margin: 0
+}
+
+.secondary-text{
+    font-family: 'Montserrat', sans-serif;
+    color: #a39ba8;
+    display: block;
+    font-size: 16px;
+    font-weight: 550;
 }
 
 .inbox-widget .inbox-item .inbox-item-text {
+    font-family: 'Montserrat', sans-serif;
     color: #98a6ad;
-    display: block;
     font-size: 14px;
-    margin: 0
+    margin: 0;
+    display:inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 25ch;
 }
 
 .inbox-widget .inbox-item .inbox-item-date {
@@ -80,7 +153,7 @@ body{
 }
 
 .comment-list .comment-box-item .commnet-item-msg {
-    color: #313a46;
+    color: #715b64;
     display: block;
     margin: 10px 0;
     font-weight: 400;
@@ -101,7 +174,7 @@ body{
 }
 
 .ribbon-box .ribbon-primary {
-    background: #2d7bf4;
+    background: #a39ba8;
 }
 
 .ribbon-box .ribbon {
@@ -115,28 +188,71 @@ body{
     -webkit-box-shadow: 2px 5px 10px rgba(49,58,70,.15);
     -o-box-shadow: 2px 5px 10px rgba(49,58,70,.15);
     box-shadow: 2px 5px 10px rgba(49,58,70,.15);
-    color: #fff;
+    color: rgb(0, 0, 0);
     font-size: 13px;
 }
 .text-custom {
-    color: #02c0ce!important;
+    color: #715b64!important;
 }
 
-.badge-custom {
-    background: #02c0ce;
-    color: #fff;
-}
-.badge {
-    font-family: Rubik,sans-serif;
-    -webkit-box-shadow: 0 0 24px 0 rgba(0,0,0,.06), 0 1px 0 0 rgba(0,0,0,.02);
-    box-shadow: 0 0 24px 0 rgba(0,0,0,.06), 0 1px 0 0 rgba(0,0,0,.02);
-    padding: .35em .5em;
-    font-weight: 500;
-}
+
 .text-muted {
     color: #98a6ad!important;
 }
 
 .font-13 {
     font-size: 13px!important;
+}
+
+.img-thumbnail{
+    background: transparent;
+    border: none;
+}
+
+/* button custom stuff */
+.btn {
+    display: inline-block;
+    letter-spacing: 1px;
+    border-radius: 4px
+}
+
+.highlight-button {
+    border: 4px solid #000;
+    display: inline-block;
+    padding: 5px 17px 6px;
+    font-size: 12px;
+    color: #000;
+    background-color: transparent
+}
+
+.highlight-button:hover {
+    background-color: #000;
+    border: 4px solid #000;
+    color: #fff
+}
+
+
+
+
+
+
+
+.container-fluid {
+	background-color: #fff;
+}
+
+.navbar-toggle {
+	border: none;
+}
+
+.icon-bar {
+	 color: black;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: #f1e9da;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: black;
 }

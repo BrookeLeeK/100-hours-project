@@ -1,0 +1,166 @@
+#map {
+    height: 100%;
+  }
+
+.hide{
+    height: 0px;
+    width: 0px;
+}
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f1e9da;
+  }
+  .controls {
+    background-color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 75%;
+    margin: 0 20px;
+    color: black;
+    font-weight: 700;
+    font-size: 1em;
+    letter-spacing: 3px;
+  }
+
+  ::placeholder{
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .controls:focus {
+    border-color: #4d90fe;
+  }
+  
+  .title {
+    font-weight: bold;
+  }
+  
+  #infowindow-content {
+    display: none;
+  }
+  
+  #map #infowindow-content {
+    display: inline;
+  }
+
+
+  /* navbar stuff */
+  .navbar, .header-title {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: .5em;
+    border: none;
+    margin-bottom: 1em;
+  }
+  
+  .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+      background-color: white;
+      color: black;
+  }
+  
+  
+  .navbar-brand,.navbar-nav>li>a, .header-title, h2 {
+      color: black;
+      font-weight: 700;
+      font-size: 1.25em;
+      letter-spacing: 3px;
+    }
+
+/* custom stuff */
+
+  h1, p, h2 {
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  p{
+    font-weight: 700;
+      font-size: 1em;
+  }
+
+  .p-text{
+    display:inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 35ch;
+  }
+
+  .borders{
+      border-radius: 10px;
+      border: black solid 4px;
+  }
+  
+  .custom-base{
+      background-color: #f1e9da;
+  }
+  
+  .custom-primary{
+      background-color: #98a6ad;
+  }
+
+
+  /*input*/
+
+  .form-control, .form-label{
+    width: 75%;
+    margin: 0 20px;
+  }
+
+  .form-label{
+    color: black;
+      font-weight: 700;
+      font-size: 1.25em;
+      letter-spacing: 3px;
+  }
+
+  .hidden{
+    visibility: none;
+    height: 0px;
+    width: 0px;
+    display: inline;
+  }
+
+
+
+  /* button stuff */
+
+.btn {
+    display: inline-block;
+    letter-spacing: 1px;
+    border-radius: 4px;
+}
+
+.highlight-button {
+    border: 4px solid #000;
+    display: inline-block;
+    padding: 5px 17px 6px;
+    font-size: 12px;
+    color: #000;
+    background-color: transparent
+}
+
+.highlight-button:hover {
+    background-color: #000;
+    border: 4px solid #000;
+    color: #fff
+}
+
+
+
+/* searchbar stuff */
+
+.search-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.hide-search{
+  display: none;
+}
+  

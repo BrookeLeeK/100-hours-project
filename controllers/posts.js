@@ -1,12 +1,19 @@
 const cloudinary = require("../middleware/cloudinary");
 const Comment = require("../models/Comment");
 const Post = require("../models/Post");
+const Discussion = require("../models/Discussion")
+const Days = require("../models/Days")
+//const quote = require("../server/quoteGenerator")
+
 
 module.exports = {
   getProfile: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id });
-      res.render("profile.ejs", { posts: posts, user: req.user });
+      const discussions = await Discussion.find({ user: req.user.id });
+      const days = await Days.find({ user: req.user.id });
+      
+      res.render("profile.ejs", { posts: posts, user: req.user, discussions: discussions, days: days });
     } catch (err) {
       console.log(err);
     }
@@ -63,6 +70,19 @@ module.exports = {
       ;
     }
   },
+  setDate: async (req, res) => {
+    try {
+      await Days.create({
+        local_time: req.body.local_time,
+        countup_timer: req.body.countup_timer,
+        user: req.user.id,
+      });
+      console.log("Date set!");
+      res.redirect("/profile");
+    } catch (err) {
+      console.log(err);
+    }
+  },
   likePost: async (req, res) => {
     try {
       await Post.findOneAndUpdate(
@@ -73,6 +93,20 @@ module.exports = {
       );
       console.log("Likes +1");
       res.redirect(`/post/${req.params.id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  likeFeedPost: async (req, res) => {
+    try {
+      await Post.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          $inc: { likes: 1 },
+        }
+      );
+      console.log("Likes +1");
+      res.redirect("/feed");
     } catch (err) {
       console.log(err);
     }
