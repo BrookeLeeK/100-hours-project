@@ -17,10 +17,6 @@ const CommentSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  userName: {
-    type: String,
-    ref: "User",
-  },
   discussion: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Discussion"

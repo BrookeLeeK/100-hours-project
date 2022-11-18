@@ -6,7 +6,7 @@ module.exports = {
     try {
       //adding a comment to a post
       await Comment.create({
-        userName: req.body.userName,
+        user: req.user.id,
         comment: req.body.comment,
         post: req.params.id,
       });
@@ -19,7 +19,7 @@ module.exports = {
   createDiscussionComment: async (req, res) => {
     try {
       await Comment.create({
-        userName: req.body.userName,
+        user: req.user.id,
         comment: req.body.comment,
         discussion: req.params.id,
       });
@@ -36,7 +36,7 @@ module.exports = {
       // Delete comment from db
       await Comment.remove({ _id: req.params.id });
       console.log("Deleted Comment");
-      // res.redirect('back');
+      //res.redirect('back');
       res.redirect("/discussions");
     } catch (err) {
       console.log(err);

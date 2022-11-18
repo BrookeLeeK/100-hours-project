@@ -83,10 +83,10 @@
           <% for(var i=0; i<comments.length; i++) {%>
             <li class="mt-4 borders p-3">
               <%= comments[i].comment%>
-            <%if(comments[i].user == user.id){ %>
               <div>
+                <%if(comments[i].user == user.id){ %>
                 <form
-                  action="/comment/deleteComment/<%= comment.id %>?_method=DELETE"
+                  action="/comment/deleteComment/<%= comments.id %>?_method=DELETE"
                   method="POST"
                   class="">
                   <button class="btn highlight-button fa fa-trash" type="submit"></button>

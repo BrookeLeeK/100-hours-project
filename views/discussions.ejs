@@ -26,9 +26,9 @@
 </header>
 
     <body>
-      <div class="container">
+      <div class="container justify-content-between">
           <div class="row">
-            <div class="col-sm-7 mt-5">
+            <div class="col-md-7">
                 <div class="card borders custom-base">
                   <h4 class="header-title p-2 text-center">CREATE NEW DISCUSSION</h4>
                       <form action="/discussion/createDiscussion" method="POST">
@@ -61,20 +61,26 @@
                       </form>
                   </div>
               </div>
+              <div class="col-sm-5">
+                <div class="card borders custom-base infoBox">
+                  <h3>Write a discussion</h3>
+                  <p class="infoP">Spread the word about treatment facilities you would reccomend (or not reccomend) here. You can search the facility by name and talk about your experience anonymously.</p>
+                </div>
+              </div>
           </div>
           <!-- <div class="search-wrapper">
             <label for="search"> search discussions</label>
             <input type="search" id="search">
           </div> -->
           
-          <div class="container">
-            <div class="justify-content-center mt-5">
-              <h2> DISCUSSIONS </h2>
+          <div class="container-md">
+            <div class="row discussions">
+              <h2 class="discussionHeading"> DISCUSSIONS </h2>
                   <ul class="row list-unstyled">
                       <% for(var i=0; i<discussions.length; i++) {%>
                       <li class="col-5 mt-5 m-2 borders">
                           <a href="/discussion/<%= discussions[i]._id%>" class="text-dark">
-                              <h1><%= discussions[i].title %></h1>
+                              <h2><%= discussions[i].title %></h2>
                               <p class="p-text"><%= discussions[i].text %></p>
                               <p><%= discussions[i].place_name %></p>
                           </a>
