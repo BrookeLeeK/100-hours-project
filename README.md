@@ -3,7 +3,7 @@
 
 This is Pickle Wagon, an anonymous social media website for people in the sober community. Pickle Wagon is for posting about your life, creating discussions about facilities, and finding useful resources for getting help. Anonymously. 
 
-![](https://github.com/BrookeLeeK/100-hours-project/blob/main/Screen%20Recording%2011-7-2022%20at%2012.02%20PM.gif)
+![](https://github.com/BrookeLeeK/Pickle-Wagon/blob/main/Screen%20Recording%2011-18-2022%20at%2011.18%20AM.gif)
 
 
 
