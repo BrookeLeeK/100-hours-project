@@ -11,12 +11,11 @@
     <div class="navbar-header">
       <a href="/profile" class="navbar-brand">PICKLE WAGON</a> 
     </div> 
-    <div class="">
-      <ul class="nav navbar-nav navbar-right navbar-toggle">
+      <ul class="nav navbar-nav navbar-right">
               <li><a href="/feed">HOME</a></li>
               <li><a href="/profile">PROFILE</a></li>
               <li><a href="/discussions">DISCUSSIONS</a></li>
-              <li><a href="#">SOMETHING</a></li>
+              <li><a href="/about">ABOUT</a></li>
       </ul>
     </div>
   </div>
@@ -64,11 +63,11 @@
     <!-- Creating comment form -->
       <div class="col-md-5">
         <div class="card borders custom-base">
-          <h2 class="text-center">ADD A COMMENT</h2>
+          <h2 class="text-center mt-2">ADD A COMMENT</h2>
             <form action="/comment/createDiscussionComment/<%=discussion._id%>" method="POST">
-              <div class="mb-3">
-                  <label for="comment" class="form-label p-2 m-2 comment-label"></label>
-                  <input type="text" class="form-control custom-base ml-2 comment borders" id="comment" name="comment">
+              <div class="comment">
+                  <label for="comment" class="form-label"></label>
+                  <input type="text" class="form-control comment borders" id="comment" name="comment">
               </div>
               <div class="text-center">
                 <button type="submit" class="btn highlight-button">Submit</button>
@@ -84,6 +83,16 @@
           <% for(var i=0; i<comments.length; i++) {%>
             <li class="mt-4 borders p-3">
               <%= comments[i].comment%>
+            <%if(comments[i].user == user.id){ %>
+              <div>
+                <form
+                  action="/comment/deleteComment/<%= comment.id %>?_method=DELETE"
+                  method="POST"
+                  class="">
+                  <button class="btn highlight-button fa fa-trash" type="submit"></button>
+                </form>
+              </div>
+            <%}%>
             </li>
           <% } %>
         </ul>

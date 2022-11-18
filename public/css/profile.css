@@ -18,12 +18,6 @@ body{
     margin-bottom: 1em;
 }
 
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    background-color: white;
-		color: black;
-}
-
-
 .navbar-brand,.navbar-nav>li>a {
     color: black;
 	font-weight: 700;
@@ -35,7 +29,10 @@ body{
     color: #715b64;
   }
 
-
+.logo{
+    height: 50px;
+    width: 50px; 
+}
 /* Custom stuff */
 
 .borders{

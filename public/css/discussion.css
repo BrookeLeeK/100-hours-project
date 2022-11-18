@@ -6,6 +6,10 @@
     border: black solid 4px;
   }
   
+  .form-control:focus{
+    border-color: #a39ba8;
+    box-shadow: 0 0 0 0.2rem #a39ba8;
+}
   
   .custom-base{
     background-color: #f1e9da;
@@ -20,8 +24,8 @@
   }
 
   .comment{
-    width: 95%;
-    background-color: #f1e9da;
+    width: 90%;
+    margin: 20px;
   }
 
   .list{
@@ -31,9 +35,9 @@
   h3, h2{
     font-family: 'Montserrat', sans-serif;
     color: black;
-	font-weight: 700;
-	font-size: 1.5em;
-	letter-spacing: 3px;
+    font-weight: 700;
+    font-size: 1.5em;
+    letter-spacing: 3px;
   }
 
   .title{
@@ -45,7 +49,7 @@
     font-family: 'Montserrat', sans-serif;
     color: black;
     font-weight: 700;
-	font-size: 1.25em;
+	  font-size: 1.25em;
   }
 
   .website:hover{
@@ -61,21 +65,22 @@
 	font-family: 'Montserrat', sans-serif;
 	margin-top: .5em;
 	border: none;
-    margin-bottom: 5em;
-}
-
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    background-color: white;
-		color: black;
+  margin-bottom: 4em;
 }
 
 
-.navbar-brand,.navbar-nav>li>a {
+.navbar-brand {
     color: black;
 		font-weight: 700;
 		font-size: 1.25em;
 		letter-spacing: 3px;
 	}
+  .navbar-nav>li>a{
+    color: black;
+		font-weight: 700;
+		font-size: 1em;
+		letter-spacing: 3px;
+  }
 
 .navbar-brand:hover{
   color: #715b64;

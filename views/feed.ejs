@@ -8,14 +8,16 @@
   <nav class="navbar navbar-default mb-5">
     <div class="container fluid">
       <div class="navbar-header">
-        <a href="/profile" class="navbar-brand">PICKLE WAGON</a> 
+        <a href="/profile" class="navbar-brand">PICKLE WAGON
+            <img src="/imgs/logo.png" alt="logo" class="logo">
+        </a>
       </div> 
-      <div class="">
-        <ul class="nav navbar-nav navbar-right navbar-toggle">
+      <div>
+        <ul class="nav navbar-nav navbar-right">
                 <li><a href="/feed">HOME</a></li>
                 <li><a href="/profile">PROFILE</a></li>
                 <li><a href="/discussions">DISCUSSIONS</a></li>
-                <li><a href="#">SOMETHING</a></li>
+                <li><a href="/about">ABOUT</a></li>
         </ul>
       </div>
     </div>
@@ -30,7 +32,7 @@
                 <div class="card-box custom-base mb-3">
                     <div class="card-body borders">
                         <h5 class="card-title">This is your feed.</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">(Anonymous feed)</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">(Anonymous of course)</h6>
                         <p class="card-text">Post about what's on your mind, talk about the good bad and ugly. Read about someone else's good bad and ugly. Tell us your whole story if that floats your boat. This is a safe space to talk.</p>
                         <!-- <a href="#" class="card-link">Card link</a>
                         <a href="#" class="card-link">Another link</a> -->
@@ -48,14 +50,12 @@
                                     <li class="card-body">
                                         <a href="/post/<%= posts[i]._id%>" class="text-dark">
                                             <h3 class="card-title text-center feed"><%= posts[i].title %></h3>
+                                            <div class="text-center">
+                                                <img class="img-thumbnail" src="<%= posts[i].image%>">
+                                            </div>
                                         </a>
-                                        <div class="text-center">
-                                            <img class="img-thumbnail" src="<%= posts[i].image%>">
-                                        </div>
                                         <h4 class="card-text text-center"><%= posts[i].caption %></h4>
                                         <h4 class="butn borders fa fa-heart">Likes: <%= posts[i].likes %></h4>
-                                        
-                                            
                                             <!-- <h4 class="btn borders fa fa-heart">Likes: <%= posts[i].likes %></h4> -->
                                             <p class="text-muted h7 mb-2"><%= posts[i].createdAt %></p>
                                     </li>

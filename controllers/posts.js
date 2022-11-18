@@ -9,10 +9,9 @@ const Days = require("../models/Days")
 module.exports = {
   getProfile: async (req, res) => {
     try {
-      const posts = await Post.find({ user: req.user.id });
+      const posts = await Post.find({ user: req.user.id }).sort({ createdAt: "desc" }).lean();;
       const discussions = await Discussion.find({ user: req.user.id });
       const days = await Days.find({ user: req.user.id });
-      
       res.render("profile.ejs", { posts: posts, user: req.user, discussions: discussions, days: days });
     } catch (err) {
       console.log(err);

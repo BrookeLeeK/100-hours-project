@@ -9,14 +9,16 @@
   <nav class="navbar navbar-default">
     <div class="container fluid">
       <div class="navbar-header">
-        <a href="/profile" class="navbar-brand">PICKLE WAGON</a> 
+        <a href="/profile" class="navbar-brand">PICKLE WAGON
+          <img src="/imgs/logo.png" alt="logo" class="logo">
+        </a> 
       </div> 
       <div class="">
         <ul class="nav navbar-nav navbar-right navbar-toggle">
                 <li><a href="/feed">HOME</a></li>
                 <li><a href="/profile">PROFILE</a></li>
                 <li><a href="/discussions">DISCUSSIONS</a></li>
-                <li><a href="#">SOMETHING</a></li>
+                <li><a href="/about">ABOUT</a></li>
         </ul>
       </div>
     </div>
@@ -69,9 +71,9 @@
               <!--Discussions-->
               
               <div class="card-box borders ribbon-box">
-                <a href="/discussions">
-                  <div class="ribbon ribbon-primary borders highlight-button">Your Discussions</div>
-                </a>
+                <span href="">
+                  <div class="ribbon ribbon-primary borders">Your Discussions</div>
+                </span>
                 <div class="clearfix"></div>
                 <div class="inbox-widget">
                     <!-- <a href="#">
@@ -107,7 +109,7 @@
               <div class="row">
                   <div class="col-sm-8">
                     <div class="card-box borders">
-                      <h4 class="header-title mt-0 mb-3">Add a post</h4>
+                      <h4 class="header-title mt-0 mb-3">Anonymously add a post to everyone's feed</h4>
                       <div class="">
                           <div class="">
                               <form action="/post/createPost" enctype="multipart/form-data" method="POST">
@@ -142,7 +144,7 @@
                   </div>
                 <!-- end likes count -->
                 <!--sober count-->
-                  <div class="col-sm-12 borders">
+                  <!-- <div class="col-sm-12 borders">
                     <div class="card-box tilebox-one"><i class="icon-layers float-right text-muted"></i>
                       <h6 class="text-muted text-uppercase mt-0"></h6>
                       <div>
@@ -154,7 +156,7 @@
                         <p class="display_timer" id="display_timer"></p>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
             
                 <hr>
@@ -189,26 +191,26 @@
 <script>
 
 
-  const daysForm = document.getElementById("daysForm")
+  // const daysForm = document.getElementById("daysForm")
 
-  daysForm.addEventListener("submit", function timechanged(e){
-      e.preventDefault();
-      let currentDay = document.getElementById("local_time")
-      let startingDate = new Date(currentDay.value).getTime();
-      let counter = document.querySelector('.countup_timer');
+  // daysForm.addEventListener("submit", function timechanged(e){
+  //     e.preventDefault();
+  //     let currentDay = document.getElementById("local_time")
+  //     let startingDate = new Date(currentDay.value).getTime();
+  //     let counter = document.querySelector('.countup_timer');
 
-      setInterval(function() {
-        let newDate = new Date().getTime();
-        let finalDate = newDate - startingDate;
+  //     setInterval(function() {
+  //       let newDate = new Date().getTime();
+  //       let finalDate = newDate - startingDate;
 
-        let days = Math.floor(finalDate / (1000 * 60 * 60 * 24));
-        let hours = Math.floor((finalDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((finalDate % (1000 * 60 *60)) / (1000 * 60));
-        let seconds = Math.floor((finalDate % (1000 * 60)) / 1000);
+  //       let days = Math.floor(finalDate / (1000 * 60 * 60 * 24));
+  //       let hours = Math.floor((finalDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  //       let minutes = Math.floor((finalDate % (1000 * 60 *60)) / (1000 * 60));
+  //       let seconds = Math.floor((finalDate % (1000 * 60)) / 1000);
 
-        counter.textContent = days+" days "+hours+" hours "+minutes+" minutes "+seconds+" seconds ";
-    }, 1000) 
-    })
+  //       counter.textContent = days+" days "+hours+" hours "+minutes+" minutes "+seconds+" seconds ";
+  //   }, 1000) 
+  //   })
 
     // window.onload = function showTime(){
     //   let currentDay = document.getElementById("countup_timer")

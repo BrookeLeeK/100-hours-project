@@ -12,6 +12,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f1e9da;
+    font-family: 'Montserrat', sans-serif;
   }
   .controls {
     background-color: #fff;
@@ -32,8 +33,9 @@ body {
     font-family: 'Montserrat', sans-serif;
   }
   
-  .controls:focus {
-    border-color: #4d90fe;
+  .form-control:focus{
+    border-color: #a39ba8;
+    box-shadow: 0 0 0 0.2rem #a39ba8;
   }
   
   .title {
@@ -57,11 +59,10 @@ body {
     margin-bottom: 1em;
   }
   
-  .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-      background-color: white;
-      color: black;
-  }
   
+  .navbar-brand:hover{
+    color: #715b64;
+  }
   
   .navbar-brand,.navbar-nav>li>a, .header-title, h2 {
       color: black;
@@ -70,6 +71,10 @@ body {
       letter-spacing: 3px;
     }
 
+  .logo{
+      height: 50px;
+      width: 50px; 
+  }
 /* custom stuff */
 
   h1, p, h2 {

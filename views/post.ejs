@@ -8,91 +8,82 @@
     <nav class="navbar navbar-default">
       <div class="container fluid">
         <div class="navbar-header">
-          <a href="/profile" class="navbar-brand">PICKLE WAGON</a> 
+          <a href="/profile" class="navbar-brand">PICKLE WAGON
+            <img src="/imgs/logo.png" alt="logo" class="logo">
+          </a> 
         </div> 
         <div class="">
           <ul class="nav navbar-nav navbar-right">
                   <li><a href="/feed">HOME</a></li>
                   <li><a href="/profile">PROFILE</a></li>
                   <li><a href="/discussions">DISCUSSIONS</a></li>
-                  <li><a href="#">SOMETHING</a></li>
+                  <li><a href="/about">ABOUT</a></li>
           </ul>
         </div>
       </div>
     </nav>
-</header>
-              <!-- <form class="form-inline">
-              <div class="input-group">
-                  <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
-                  <div class="input-group-append">
-                      <button class="btn btn-outline-primary" type="button" id="button-addon2">
-                          <i class="fa fa-search"></i>
-                       -->
-                  
-
-
+  </header>
+              
 <body>
-
-      <div class="container-md p-2">
+      <div class="container">
         <div class="row">
             <div class="col">
               <div class="card col-sm-10 borders custom-base">
-                <img class="img-responsive p-4" src="<%= post.image%>" alt="">
-                    <h4><%= post.title %></h4>
-                    <p><%= post.caption %></p>
-                    <div class="row justify-content-between">
+                <h4 class="title"><%= post.title %></h4>
+                <img class="img-responsive p-4" src="<%= post.image%>">
+                <p><%= post.caption %></p>
+              <div class="row justify-content-between">
+                  <div>
                       <form
                         class="col-1"
                         action="/post/likePost/<%= post.id %>?_method=PUT"
                         method="POST">
-                        <button class="btn borders fa fa-heart" type="submit"></button>
+                        <button class="btn borders fa fa-heart highlight-button" type="submit"></button>
                       </form>
-                      <h5 class="col-4">Likes: <%= post.likes %></h3>
-                      <%if(post.user == user.id){ %>
+                  </div>
+                      <h5 class="col-4 likes">Likes: <%= post.likes %></h5>
+                        
+                  <div>
+                    <%if(post.user == user.id){ %>
                       <form
                         action="/post/deletePost/<%= post.id %>?_method=DELETE"
                         method="POST"
                         class="col-3">
-                        <button class="btn borders fa fa-trash" type="submit"></button>
+                        <button class="btn borders fa fa-trash highlight-button" type="submit"></button>
                       </form>
-                      <%}%>
-                    </div>
-              </div>
-            </div>
-            <!-- Creating comment form -->
-            <div class="col">
-              <div class="col-md p-2">
-                <div class="p-5 container col borders">
-                        <div class="box-footer">
-                            <form action="/comment/createComment/<%=post._id%>" method="POST">
-                              <div class="comment-text">
-                                    <label for="comment" class="form-label"></label>
-                                    <input type="text" class="form-control borders custom-base" id="comment" name="comment" placeholder="Add a comment">
-                              </div>
-                              <button type="submit" class="btn borders mt-3">Submit</button>
-                            </form>
-                        </div>
-                </div>
-              </div>
-
-              <!-- Display comments using For Loop -->
-              
-                <div class="p-2 container">
-                  <ul class="list-unstyled">
-                    <div class="container p-2">
-                      <% for(var i=0; i<comments.length; i++) {%>
-                        <li class="my-3 p-2 borders">
-                          <%= comments[i].comment%>
-                          <p class="p-2"><%= comments[i].userName %></p>
-                        </li>
-                      <% } %>
-                    </div>
-                  </ul>
+                  </div>
+                  <%}%>
               </div>
             </div>
           </div>
+            <!-- Creating comment form -->
+            <div class="col">
+              <div class="col-md">
+                <div class="container col borders">
+                    <h4 class="text-center mt-2">ADD A COMMENT</h4>
+                    <form action="/comment/createComment/<%=post._id%>" method="POST">
+                        <div class="comment-text">
+                            <label for="comment" class="form-label"></label>
+                            <input type="text" class="form-control borders" id="comment" name="comment" placeholder="Add a comment">
+                        </div>
+                        <button type="submit" class="btn highlight-button borders mt-4">Submit</button>
+                    </form>
+                </div>
+              </div>
+              <!-- Display comments using For Loop -->
+              <div class="container-md display">
+                <ul class="list-unstyled">
+                  <h4>COMMENTS</h4>
+                    <% for(var i=0; i<comments.length; i++) {%>
+                      <li class="comment borders">
+                        <%= comments[i].comment%>
+                      </li>
+                    <% } %>
+                </ul>
+            </div>
+            </div>
+          </div>
         </div>
-      </div>
 </body>
 
 
