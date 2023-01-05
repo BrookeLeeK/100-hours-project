@@ -1,10 +1,11 @@
 {
-  "name": "100hours",
+  "name": "Pickle Wagon",
   "version": "1.0.0",
   "description": "Sober Social Media Website",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
+    "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,15 +20,12 @@
     "cloudinary": "^1.32.0",
     "connect-mongo": "^4.6.0",
     "cors": "^2.8.5",
-    "daisyui": "^2.31.0",
     "dotenv": "^16.0.2",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.3",
     "google-search-results-nodejs": "^2.1.0",
-    "gulp": "^4.0.2",
-    "handlebars": "^4.7.7",
     "jquery": "^3.6.1",
     "method-override": "^3.0.0",
     "moment": "^2.29.4",

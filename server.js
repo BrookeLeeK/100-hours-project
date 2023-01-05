@@ -13,10 +13,8 @@ const postRoutes = require("./routes/posts");
 const { options } = require('./routes/main');
 const commentRoutes = require("./routes/comments");
 const discussionRoutes = require("./routes/discussions")
-//const quoteGenerator = require('random-quote-generator');
 
 
-//console.log(quoteGenerator.generateAQuote());
 
 //Load .env in the config folder
 require("dotenv").config({ path: "./config/.env" });
